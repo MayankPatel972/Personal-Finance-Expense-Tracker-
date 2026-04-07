@@ -1,6 +1,6 @@
 # Pro Finance Dashboard 💰
 
-**[🔴 Live Demo: Click Here to View the Dashboard]([https://yourusername.github.io/your-repo-name](https://mayankpatel972.github.io/Personal-Finance-Expense-Tracker/)**
+[🚀 View Live Project: Personal Finance Dashboard](https://mayankpatel972.github.io/Personal-Finance-Expense-Tracker/)
 
 ![Dashboard Screenshot](screenshot.png)
 
