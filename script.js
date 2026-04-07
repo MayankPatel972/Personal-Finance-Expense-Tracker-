@@ -7,6 +7,39 @@ const list = document.getElementById('transaction-list');
 const filterMonth = document.getElementById('filter-month');
 const filterCategory = document.getElementById('filter-category');
 
+// --- NEW CODE: Dynamic Categories ---
+const typeSelect = document.getElementById('type');
+const categorySelect = document.getElementById('category');
+
+// Define our categories based on the transaction type
+const categoryOptions = {
+    expense: ['Food', 'Rent', 'Fun', 'Utilities', 'Other'],
+    income: ['Salary', 'Freelance', 'Bonus', 'Other']
+};
+
+// Function to update the category dropdown
+function updateCategoryDropdown() {
+    const selectedType = typeSelect.value;
+    
+    // 1. Clear the current options
+    categorySelect.innerHTML = ''; 
+    
+    // 2. Loop through the correct array and create new options
+    categoryOptions[selectedType].forEach(cat => {
+        const option = document.createElement('option');
+        option.value = cat;
+        option.innerText = cat;
+        categorySelect.appendChild(option);
+    });
+}
+
+// 3. Listen for whenever the user changes the 'Type' dropdown
+typeSelect.addEventListener('change', updateCategoryDropdown);
+
+// 4. Run it once immediately so the initial load is correct
+updateCategoryDropdown();
+// --- END OF NEW CODE ---
+
 // Update UI
 function updateUI() {
     // Apply Filters
