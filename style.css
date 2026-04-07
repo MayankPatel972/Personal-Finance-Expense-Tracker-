@@ -1,0 +1,159 @@
+:root {
+    /* Modern Dark Theme Colors */
+    --bg-dark: #0f172a;
+    --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    
+    --accent: #8b5cf6; /* Vibrant Purple */
+    --accent-glow: rgba(139, 92, 246, 0.5);
+    
+    --success: #10b981; /* Neon Green */
+    --danger: #f43f5e; /* Neon Rose/Red */
+    
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+}
+
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    font-family: 'Poppins', sans-serif; 
+}
+
+body { 
+    background: var(--bg-gradient); 
+    background-attachment: fixed;
+    color: var(--text-main); 
+    padding: 2rem 1rem; 
+    display: flex; 
+    justify-content: center; 
+    min-height: 100vh;
+}
+
+.container { max-width: 900px; width: 100%; }
+
+/* Header Styling */
+header { text-align: center; margin-bottom: 2.5rem; }
+h1 { font-size: 2.5rem; font-weight: 600; letter-spacing: -1px; }
+h1 span { color: var(--accent); }
+.subtitle { color: var(--text-muted); font-size: 0.9rem; margin-top: 0.2rem; }
+
+/* Dashboard Cards (The Top 3 blocks) */
+.dashboard { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+.card { 
+    background: var(--glass-bg); 
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1.5rem; 
+    border-radius: 16px; 
+    text-align: center; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+.card h3 { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
+.card p { font-size: 1.8rem; font-weight: 600; }
+
+.balance-card { background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(0,0,0,0)); border-color: rgba(139, 92, 246, 0.3); }
+.text-success { color: var(--success) !important; text-shadow: 0 0 10px rgba(16, 185, 129, 0.3); }
+.text-danger { color: var(--danger) !important; text-shadow: 0 0 10px rgba(244, 63, 94, 0.3); }
+
+/* Glass Panels for Forms/Lists */
+.glass-panel {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 1.8rem;
+    backdrop-filter: blur(10px);
+}
+
+.controls { display: grid; grid-template-columns: 1.5fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
+h2 { font-size: 1.1rem; font-weight: 500; margin-bottom: 1.5rem; color: var(--accent); }
+
+/* Form Elements */
+.input-row { display: flex; gap: 1rem; }
+.input-row .form-group { flex: 1; }
+.form-group { margin-bottom: 1.2rem; }
+label { display: block; margin-bottom: 0.4rem; font-size: 0.85rem; color: var(--text-muted); }
+
+input, select { 
+    width: 100%; 
+    padding: 0.8rem 1rem; 
+    background: rgba(0,0,0,0.2); 
+    border: 1px solid var(--glass-border); 
+    border-radius: 8px; 
+    color: var(--text-main);
+    font-size: 0.95rem;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+input:focus, select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15); }
+
+/* Remove standard calendar icon bg for dark mode */
+input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(1); opacity: 0.6; cursor: pointer; }
+
+select option { background: var(--bg-dark); color: var(--text-main); }
+
+/* Modern Button */
+.glow-btn { 
+    background: linear-gradient(135deg, var(--accent), #6d28d9); 
+    color: white; 
+    border: none; 
+    padding: 0.9rem; 
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer; 
+    font-weight: 600; 
+    font-size: 1rem;
+    margin-top: 0.5rem; 
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px var(--accent-glow);
+}
+.glow-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(139, 92, 246, 0.7); }
+
+/* Transaction List Styling */
+.transaction-item { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 1rem; 
+    background: rgba(0,0,0,0.15);
+    border-radius: 8px;
+    margin-bottom: 0.8rem;
+    border-left: 4px solid transparent;
+    transition: transform 0.2s ease;
+}
+.transaction-item:hover { transform: translateX(5px); background: rgba(0,0,0,0.25); }
+
+/* Dynamic Borders based on Income/Expense */
+.transaction-item:has(.text-success) { border-left-color: var(--success); }
+.transaction-item:has(.text-danger) { border-left-color: var(--danger); }
+
+.t-info span { display: block; }
+.t-title { font-weight: 500; font-size: 1.05rem; }
+.t-date { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;}
+.t-amount { font-weight: 600; display: flex; align-items: center; gap: 1rem; font-size: 1.1rem; }
+
+/* Delete Button */
+.delete-btn { 
+    background: transparent; 
+    color: var(--text-muted); 
+    border: 1px solid var(--text-muted);
+    width: 28px; 
+    height: 28px;
+    border-radius: 50%;
+    font-size: 0.7rem; 
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.delete-btn:hover { background: var(--danger); color: white; border-color: var(--danger); box-shadow: 0 0 10px rgba(244, 63, 94, 0.4); }
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+    .controls { grid-template-columns: 1fr; }
+    .input-row { flex-direction: column; gap: 0; }
+}
