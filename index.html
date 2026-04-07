@@ -1,4 +1,39 @@
-<form id="transaction-form">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Finance Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Finance<span>Overview</span></h1>
+        <p class="subtitle">Track your ₹ wealth in real-time</p>
+    </header>
+
+    <div class="dashboard">
+        <div class="card balance-card">
+            <h3>Total Balance</h3>
+            <p id="balance">₹0.00</p>
+        </div>
+        <div class="card stat-card">
+            <h3>Income</h3>
+            <p id="total-income" class="text-success">+₹0.00</p>
+        </div>
+        <div class="card stat-card">
+            <h3>Expenses</h3>
+            <p id="total-expense" class="text-danger">-₹0.00</p>
+        </div>
+    </div>
+
+    <div class="controls">
+        <div class="form-section glass-panel">
+            <h2>Add Transaction</h2>
+            <form id="transaction-form">
                 <div class="input-row">
                     <div class="form-group">
                         <label>Type</label>
@@ -30,3 +65,49 @@
                 </div>
                 <button type="submit" class="glow-btn">Add Entry</button>
             </form>
+        </div>
+
+        <div class="filter-section glass-panel">
+            <h2>Analytics Filter</h2>
+            <div class="form-group">
+                <label>By Month</label>
+                <select id="filter-month">
+                    <option value="all">All Months</option>
+                    <option value="01">January</option>
+                    <option value="02">February</option>
+                    <option value="03">March</option>
+                    <option value="04">April</option>
+                    <option value="05">May</option>
+                    <option value="06">June</option>
+                    <option value="07">July</option>
+                    <option value="08">August</option>
+                    <option value="09">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>By Category</label>
+                <select id="filter-category">
+                    <option value="all">All Categories</option>
+                    <option value="Food">Food</option>
+                    <option value="Rent">Rent</option>
+                    <option value="Fun">Fun</option>
+                    <option value="Salary">Salary</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="list-section glass-panel">
+        <h2>Recent Transactions</h2>
+        <div id="transaction-list">
+            </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
